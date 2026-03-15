@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Link Generator | Free Direct Chat Creator — Genix Tools</title>
+
+    <meta name="description"
+        content="Create a direct WhatsApp link with a custom message. Best free WhatsApp link generator for business, marketing, and personal use. No registration required.">
+    <meta name="keywords"
+        content="whatsapp link generator, create whatsapp link, wa.me link creator, whatsapp marketing tool, direct chat link, رابط واتساب مباشر, عمل لينك واتس">
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" href="https://moheb1110.github.io/Genix-Tools/favicon.jpg">
+
+    <style>
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 8px;
+        }
+
+        .logo span {
+            color: #6c63ff;
+        }
+
+        .wa-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .wa-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .wa-input:focus {
+            border-color: var(--accent);
+        }
+
+        .result-box {
+            margin-top: 25px;
+            padding: 15px;
+            background: rgba(var(--accent-rgb), 0.1);
+            border: 1px dashed var(--accent);
+            border-radius: 10px;
+            display: none;
+            /* تظهر فقط عند التوليد */
+        }
+
+        .generated-link {
+            word-break: break-all;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .btn-generate {
+            width: 100%;
+            padding: 14px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-generate:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .secondary-btns {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="../" class="logo">
+                <img src="../logo-removebg-preview.png" alt="Genix Tools Logo" class="logo-img">
+                Genix<span>Tools</span>
+            </a>
+            <div class="nav-links">
+                <a href="../typing-test/">Typing Test</a>
+                <a href="../word-counter/">Word Counter</a>
+                <a href="../bmi-calculator/">BMI</a>
+                <a href="../age-calculator/">Age Calc</a>
+                <a href="../password-generator/">Password Gen</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="page-hero">
+            <h1>📲 WhatsApp <em>Link Generator</em></h1>
+            <p>Generate a free chat link with a pre-filled message instantly.</p>
+        </div>
+
+        <div class="container wa-container">
+            <div class="tool-card">
+                <div class="input-group">
+                    <label for="phone">Phone Number (with Country Code)</label>
+                    <input type="tel" id="phone" class="wa-input" placeholder="e.g. 201012345678" maxlength="15">
+                </div>
+
+                <div class="input-group">
+                    <label for="message">Custom Message (Optional)</label>
+                    <textarea id="message" class="wa-input" rows="3"
+                        placeholder="Hello! I'm interested in your service."></textarea>
+                </div>
+
+                <button class="btn-generate" onclick="generateLink()">Generate WhatsApp Link</button>
+
+                <div id="result-box" class="result-box">
+                    <span class="generated-link" id="final-link"></span>
+                    <div class="secondary-btns">
+                        <button class="btn-tool" style="background: var(--accent); color: white; border: none; flex: 2;"
+                            onclick="copyLink()">Copy Link</button>
+                        <button class="btn-tool" style="flex: 1;" onclick="testLink()">Test Link</button>
+                    </div>
+                </div>
+            </div>
+
+            <section style="margin-top: 40px; text-align: left; line-height: 1.6; color: var(--text-muted);">
+                <h3>Why use Genix WhatsApp Link Creator?</h3>
+                <p>Our <strong>WhatsApp link generator</strong> is a free tool that allows you to create a direct link
+                    to any WhatsApp number without saving it in your contacts. This is perfect for <strong>WhatsApp
+                        marketing</strong>, business owners on Instagram, and anyone who wants to make it easier for
+                    customers to reach them.</p>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        function generateLink() {
+            const phone = document.getElementById('phone').value.replace(/\D/g, '');
+            const msg = encodeURIComponent(document.getElementById('message').value);
+
+            if (!phone) {
+                alert('Please enter a valid phone number with country code.');
+                return;
+            }
+
+            const baseUrl = "https://wa.me/";
+            const finalLink = `${baseUrl}${phone}${msg ? '?text=' + msg : ''}`;
+
+            document.getElementById('final-link').innerText = finalLink;
+            document.getElementById('result-box').style.display = 'block';
+        }
+
+        function copyLink() {
+            const link = document.getElementById('final-link').innerText;
+            navigator.clipboard.writeText(link).then(() => {
+                alert('Link copied to clipboard!');
+            });
+        }
+
+        function testLink() {
+            const link = document.getElementById('final-link').innerText;
+            window.open(link, '_blank');
+        }
+    </script>
+</body>
+
+</html>
