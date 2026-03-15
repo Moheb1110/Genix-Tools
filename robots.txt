@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://genixtools.github.io/sitemap.xml
+Sitemap: https://moheb1110.github.io/Genix-Tools/sitemap.xml
