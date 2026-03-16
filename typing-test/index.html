@@ -166,6 +166,75 @@
       overflow-wrap: anywhere;
       white-space: normal;
     }
+
+        /* FAQ Section Styling */
+    .faq-section {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .faq-title {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      color: var(--text);
+    }
+
+    .faq-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    details {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    details[open] {
+      border-color: var(--accent);
+      background: rgba(var(--accent-rgb), 0.05);
+    }
+
+    summary {
+      padding: 18px 25px;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text);
+      transition: 0.3s;
+    }
+
+    summary:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    summary::after {
+      content: '＋';
+      font-size: 1.2rem;
+      color: var(--accent);
+      transition: 0.3s;
+    }
+
+    details[open] summary::after {
+      transform: rotate(45deg);
+      content: '＋';
+    }
+
+    .faq-content {
+      padding: 0 25px 20px 25px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    
   </style>
 </head>
 
@@ -291,6 +360,46 @@
 
       <div class="ad-slot"><!-- AdSense Bottom --></div>
     </div>
+
+        <section class="faq-section">
+      <h2 class="faq-title">Guide & FAQ</h2>
+      <div class="faq-container">
+        <details>
+          <summary>What is WPM and how is it calculated?</summary>
+          <div class="faq-content">
+            <p>WPM stands for <strong>Words Per Minute</strong>. It is calculated by taking the number of characters
+              typed divided by 5 (the average word length) and then normalized over a 60-second period. This is the
+              global standard for measuring typing speed.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What is considered a "good" typing speed?</summary>
+          <div class="faq-content">
+            <p>An average typing speed is around 40 WPM. However, for professionals like developers or data entry
+              clerks, a "good" speed is typically between 60 to 80 WPM. Top-tier typists often exceed 100 WPM with high
+              accuracy.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Why is accuracy important in a typing test?</summary>
+          <div class="faq-content">
+            <p>Accuracy measures how many words you typed correctly out of the total. Speed is useless without accuracy;
+              a high WPM with many errors takes more time to fix later. Aim for at least 95% accuracy.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Does this tool track what I type?</summary>
+          <div class="faq-content">
+            <p>Absolutely not. Like all tools on Genix, the typing test runs locally in your browser. We do not log your
+              keystrokes or store the text you type. Your privacy is 100% protected.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+    
   </main>
 
 
