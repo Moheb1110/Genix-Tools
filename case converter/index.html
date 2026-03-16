@@ -57,6 +57,76 @@
             color: var(--text-muted);
             margin-top: 10px;
         }
+
+        
+    /* FAQ Section Styling */
+    .faq-section {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .faq-title {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      color: var(--text);
+    }
+
+    .faq-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    details {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    details[open] {
+      border-color: var(--accent);
+      background: rgba(var(--accent-rgb), 0.05);
+    }
+
+    summary {
+      padding: 18px 25px;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text);
+      transition: 0.3s;
+    }
+
+    summary:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    summary::after {
+      content: '＋';
+      font-size: 1.2rem;
+      color: var(--accent);
+      transition: 0.3s;
+    }
+
+    details[open] summary::after {
+      transform: rotate(45deg);
+      content: '＋';
+    }
+
+    .faq-content {
+      padding: 0 25px 20px 25px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+        
     </style>
 </head>
 
@@ -102,6 +172,21 @@
                 <div class="stats" id="char-stats">Character count: 0</div>
             </div>
         </div>
+        
+        <section class="faq-section">
+            <h2 class="faq-title">Guide & FAQ</h2>
+            <div class="faq-container">
+                <details>
+                    <summary>How to quickly convert text to Uppercase or Lowercase?</summary>
+                    <div class="faq-content">
+                        <p>Paste your text and click the desired button (UPPERCASE, lowercase, Title Case, etc.). The
+                            conversion is instant and helps you fix "Caps Lock" accidents in seconds.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        
     </main>
 
     <footer>
