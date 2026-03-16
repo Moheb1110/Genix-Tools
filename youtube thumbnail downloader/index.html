@@ -63,6 +63,76 @@
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 15px;
     }
+
+  
+    /* FAQ Section Styling */
+    .faq-section {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .faq-title {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      color: var(--text);
+    }
+
+    .faq-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    details {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    details[open] {
+      border-color: var(--accent);
+      background: rgba(var(--accent-rgb), 0.05);
+    }
+
+    summary {
+      padding: 18px 25px;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text);
+      transition: 0.3s;
+    }
+
+    summary:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    summary::after {
+      content: '＋';
+      font-size: 1.2rem;
+      color: var(--accent);
+      transition: 0.3s;
+    }
+
+    details[open] summary::after {
+      transform: rotate(45deg);
+      content: '＋';
+    }
+
+    .faq-content {
+      padding: 0 25px 20px 25px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    
   </style>
 </head>
 
@@ -118,6 +188,47 @@
         <p>3. Click "Get Thumbnail" and save the high-resolution image to your device.</p>
       </div>
     </div>
+
+  <section class="faq-section">
+    <h2 class="faq-title">Guide & FAQ</h2>
+    <div class="faq-container">
+        <details>
+            <summary>How to download a YouTube thumbnail image?</summary>
+            <div class="faq-content">
+                <p>Simply copy the YouTube video URL, paste it into the input box above, and click "Get Thumbnail". You will see various quality options (HD, High, Medium, etc.). Right-click to save or use the download button.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Can I download thumbnails in HD (1080p or 4K)?</summary>
+            <div class="faq-content">
+                <p>Yes, our tool fetches the highest resolution available (Maximum Resolution) provided by YouTube for that specific video. If the creator uploaded an HD thumbnail, you can download it in 1280x720 or higher.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Why use a YouTube thumbnail downloader?</summary>
+            <div class="faq-content">
+                <p>This tool is essential for creators who want to study high-performing thumbnails for SEO, or for bloggers and developers who need to display a video preview image on their websites with fast loading speeds.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Is it legal to use someone else's thumbnail?</summary>
+            <div class="faq-content">
+                <p>Downloading a thumbnail is legal for personal use or inspiration. However, most thumbnails are copyrighted, so you should seek permission from the owner if you plan to reuse it in your own commercial content.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Does this tool track the videos I search for?</summary>
+            <div class="faq-content">
+                <p>Never. Genix Tools does not log your URLs or track your downloads. The link extraction happens directly in your browser, ensuring your activity remains private and secure.</p>
+            </div>
+        </details>
+    </div>
+</section>
+    
   </main>
 
   <footer>
