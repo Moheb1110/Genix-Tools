@@ -68,6 +68,76 @@
       font-family: 'Syne', sans-serif; font-size: 3.5rem; font-weight: 800;
       color: var(--accent);
     }
+
+  
+    /* FAQ Section Styling */
+    .faq-section {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .faq-title {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      color: var(--text);
+    }
+
+    .faq-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    details {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    details[open] {
+      border-color: var(--accent);
+      background: rgba(var(--accent-rgb), 0.05);
+    }
+
+    summary {
+      padding: 18px 25px;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text);
+      transition: 0.3s;
+    }
+
+    summary:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    summary::after {
+      content: '＋';
+      font-size: 1.2rem;
+      color: var(--accent);
+      transition: 0.3s;
+    }
+
+    details[open] summary::after {
+      transform: rotate(45deg);
+      content: '＋';
+    }
+
+    .faq-content {
+      padding: 0 25px 20px 25px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    
   </style>
 </head>
 <body>
@@ -142,6 +212,41 @@
 
     <div class="ad-slot"></div>
   </div>
+
+
+<section class="faq-section">
+    <h2 class="faq-title">Guide & FAQ</h2>
+    <div class="faq-container">
+        <details>
+            <summary>How to calculate age from date of birth?</summary>
+            <div class="faq-content">
+                <p>Simply select your birth date from the calendar and click "Calculate". The tool will instantly show your exact age in years, months, and days, as well as total days lived.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Can I find out how many days I have lived?</summary>
+            <div class="faq-content">
+                <p>Yes! Our tool provides a detailed breakdown. Not only will you see your age in years, but also your total age in months, weeks, days, hours, and even minutes.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Is it safe to enter my birth date online?</summary>
+            <div class="faq-content">
+                <p>Most sites store your personal data. <strong>Genix Tools</strong> processes your birth date locally in your browser. We never store, save, or share your birth date. Your privacy is our priority.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Does the calculator account for leap years?</summary>
+            <div class="faq-content">
+                <p>Absolutely. Our algorithm accounts for every leap year and varying month lengths to ensure your age calculation is 100% accurate down to the last day.</p>
+            </div>
+        </details>
+    </div>
+</section>
+  
 </main>
 
 <footer>
