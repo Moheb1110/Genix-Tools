@@ -168,6 +168,77 @@
       color: var(--text-muted);
       line-height: 1.5;
     }
+
+
+    
+    /* FAQ Section Styling */
+    .faq-section {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .faq-title {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      color: var(--text);
+    }
+
+    .faq-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    details {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    details[open] {
+      border-color: var(--accent);
+      background: rgba(var(--accent-rgb), 0.05);
+    }
+
+    summary {
+      padding: 18px 25px;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text);
+      transition: 0.3s;
+    }
+
+    summary:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    summary::after {
+      content: '＋';
+      font-size: 1.2rem;
+      color: var(--accent);
+      transition: 0.3s;
+    }
+
+    details[open] summary::after {
+      transform: rotate(45deg);
+      content: '＋';
+    }
+
+    .faq-content {
+      padding: 0 25px 20px 25px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    
   </style>
 </head>
 
@@ -304,6 +375,50 @@
 
       <div class="ad-slot"><!-- AdSense Bottom --></div>
     </div>
+
+    
+    <section class="faq-section">
+      <h2 class="faq-title">Guide & FAQ</h2>
+      <div class="faq-container">
+
+        <details>
+          <summary>ًWhat is BMI ?</summary>
+          <div class="faq-content">
+            <p>BMI is calculated by dividing your weight in kilograms by the square of your height in meters. It is a
+              reliable indicator of body fatness for most people.</p>
+          </div>
+        </details>
+        <details>
+          <summary>How is BMI calculated?</summary>
+          <div class="faq-content">
+            <p>BMI is calculated by dividing your weight in kilograms by the square of your height in meters. It is a
+              reliable indicator of body fatness for most people.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What is a healthy BMI for adults?</summary>
+          <div class="faq-content">
+            <p>A healthy BMI range is typically between 18.5 and 24.9. Below 18.5 is considered underweight, while 25 to
+              29.9 is considered overweight.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How to use this tool?</summary>
+          <div class="faq-content">
+            <p>1. Enter your height.
+              <br>
+              2. Enter your wheight.
+              <br>
+              3. Read your result.
+            </p>
+          </div>
+        </details>
+
+      </div>
+    </section>
+    
   </main>
 
 
