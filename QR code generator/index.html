@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator | Free Online QR Creator — Genix Tools</title>
+
+    <meta name="description"
+        content="Create free, fast, and private QR codes online. Generate QR codes from text or URLs instantly. No sign-up required with Genix Tools.">
+    <meta name="keywords"
+        content="qr code generator, create qr code online, free qr creator, private qr code, text to qr, url to qr, generate qr code, رابط qr code">
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" href="https://moheb1110.github.io/Genix-Tools/logo-removebg-preview.png">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <style>
+        .logo img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 8px;
+        }
+
+        .logo span {
+            color: #6c63ff;
+        }
+
+
+        .qr-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .wa-input {
+            /* Reusing input class from WhatsApp tool */
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .wa-input:focus {
+            border-color: var(--accent);
+        }
+
+        .result-box {
+            margin-top: 25px;
+            padding: 15px;
+            background: rgba(var(--accent-rgb), 0.1);
+            border: 1px dashed var(--accent);
+            border-radius: 10px;
+            display: none;
+            /* Initially hidden */
+            text-align: center;
+        }
+
+        #qrcode {
+            display: inline-block;
+            padding: 15px;
+            background: white;
+            /* Necessary for QR contrast */
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        #qrcode img {
+            width: 100%;
+            /* Make sure generated image is responsive */
+            max-width: 256px;
+            /* Limit max size */
+        }
+
+        .btn-generate {
+            width: 100%;
+            padding: 14px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-generate:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .secondary-btns {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="../" class="logo">
+                <img src="../logo-removebg-preview.png" alt="Genix Tools Logo">
+                Genix<span>Tools</span>
+            </a>
+            <div class="nav-links">
+                <a href="../typing-test/">Typing Test</a>
+                <a href="../word-counter/">Word Counter</a>
+                <a href="../bmi-calculator/">BMI</a>
+                <a href="../age-calculator/">Age Calc</a>
+                <a href="../password-generator/">Password Gen</a>
+            </div>
+        </div>
+
+    </nav>
+
+    <main>
+        <div class="page-hero">
+            <h1>📲 QR Code <em>Generator</em></h1>
+            <p>Instantly generate free, fast, and private QR codes online.</p>
+        </div>
+
+        <div class="container qr-container">
+            <div class="tool-card">
+                <div class="input-group">
+                    <label for="text-input">Enter Text or URL</label>
+                    <textarea id="text-input" class="wa-input" rows="4"
+                        placeholder="https://moheb1110.github.io/Genix-Tools/"></textarea>
+                </div>
+
+                <button class="btn-generate" onclick="generateQR()">Generate QR Code</button>
+
+                <div id="result-box" class="result-box">
+                    <div id="qrcode"></div>
+                    <div class="secondary-btns">
+                        <button class="btn-tool" style="background: var(--accent); color: white; border: none;"
+                            onclick="downloadQR()">Download PNG</button>
+                    </div>
+                </div>
+            </div>
+
+            <section style="margin-top: 40px; text-align: left; line-height: 1.6; color: var(--text-muted);">
+                <h3>Secure and Fast QR Creator</h3>
+                <p>This <strong>QR code generator</strong> is designed with speed and <strong>privacy</strong> in mind.
+                    Unlike other online QR creators, our tool runs 100% in your browser. This means the text or
+                    <strong>URL</strong> you enter is never sent to our server. Generate infinite <strong>private QR
+                        codes</strong> for your business, marketing, or personal use, instantly and for free.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 <strong>Genix Tools</strong> · <a href="../about.html">About</a></p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        let qrcodeInstance = null;
+
+        function generateQR() {
+            const input = document.getElementById('text-input').value.trim();
+            const output = document.getElementById('qrcode');
+            const resultBox = document.getElementById('result-box');
+
+            if (!input) {
+                alert('Please enter some text or a valid URL.');
+                return;
+            }
+
+            // Clear any existing QR Code
+            output.innerHTML = '';
+
+            // Initialize QR Code instance
+            // Using standard 256px size and High error correction
+            qrcodeInstance = new QRCode(output, {
+                text: input,
+                width: 256,
+                height: 256,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            resultBox.style.display = 'block';
+        }
+
+        function downloadQR() {
+            const canvas = document.querySelector('#qrcode canvas');
+            if (!canvas) {
+                alert('Please generate a QR code first.');
+                return;
+            }
+
+            const dataURL = canvas.toDataURL("image/png");
+            const a = document.createElement("a");
+            a.href = dataURL;
+            a.download = "qrcode.png";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    </script>
+</body>
+
+</html>
